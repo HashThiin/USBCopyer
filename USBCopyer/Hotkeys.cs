@@ -19,7 +19,7 @@ namespace USBCopyer
         public event HotkeyEventHandler OnHotkey;
         public enum KeyFlags
         {
-            Alt= 0x1,
+            Alt = 0x1,
             Control = 0x2,
             Shift = 0x4,
             Win = 0x8

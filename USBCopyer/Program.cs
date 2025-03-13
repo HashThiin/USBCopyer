@@ -21,7 +21,7 @@ namespace USBCopyer
             {
                 Application.SetCompatibleTextRenderingDefault(false);
                 if (!System.IO.Directory.Exists(Host.confdir)) System.IO.Directory.CreateDirectory(Host.confdir);
-                bool useUglyUI = false; 
+                bool useUglyUI = false;
                 foreach (string arg in args)
                 {
                     switch (arg)
@@ -30,7 +30,7 @@ namespace USBCopyer
                         case "-hide":
                             showicon = false;
                             break;
-                        
+
                         case "/gui":
                         case "-gui":
                             showicon = true;
@@ -66,7 +66,7 @@ namespace USBCopyer
                             break;
                     }
                 }
-                
+
                 if (!useUglyUI)
                     Application.EnableVisualStyles();
 
@@ -84,7 +84,7 @@ namespace USBCopyer
                 });
                 Application.Run(new Host());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 log("程序遇到致命异常：" + ex.ToString(), 2);
             }
@@ -98,7 +98,8 @@ namespace USBCopyer
         public static void log(string str, int type = 0)
         {
             Console.Write(str);
-            if (logger != null) {
+            if (logger != null)
+            {
                 EventLogEntryType etype;
                 switch (type)
                 {
@@ -146,9 +147,9 @@ namespace USBCopyer
         /// <returns></returns>
         public static bool checkAdminPermission(string command = "")
         {
-            if(!isAdminPermission())
+            if (!isAdminPermission())
             {
-                if(MessageBox.Show("该操作需要管理员权限才能完成，是否立即以管理员权限重启 " + Application.ProductName + " ?", "需要管理员权限", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                if (MessageBox.Show("该操作需要管理员权限才能完成，是否立即以管理员权限重启 " + Application.ProductName + " ?", "需要管理员权限", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     //创建启动对象
                     System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
@@ -164,14 +165,14 @@ namespace USBCopyer
                         Environment.Exit(140);
                         return true;
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         MessageBox.Show("操作失败。要继续操作，请先退出，然后以管理员权限运行本程序。\r\n" + ex.Message, "需要管理员权限", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     return false;
                 }
                 return false;
-            } 
+            }
             else
             {
                 return true;

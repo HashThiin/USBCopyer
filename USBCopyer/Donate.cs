@@ -20,14 +20,14 @@ namespace USBCopyer
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-                try
-                {
-                    Process.Start("explorer.exe", "\"https://github.com/kenvix/USBCopyer\"");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("打开失败：" + ex.ToString());
-                }
+            try
+            {
+                Process.Start("explorer.exe", "\"https://github.com/kenvix/USBCopyer\"");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("打开失败：" + ex.ToString());
+            }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
